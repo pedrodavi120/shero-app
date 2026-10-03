@@ -3,10 +3,8 @@ import 'package:flutter/foundation.dart';
 
 // Configuração externa e centralizada da URL da API (sem poluir a interface do app)
 class AppConfig {
-  // Cole aqui a URL HTTPS do seu Web Service criado no Render:
-  // Exemplo: static const String customApiUrl = "https://shero-app-api.onrender.com";
-  // Se deixar vazio (""), o app tentará o emulador Android (10.0.2.2) ou o espelho oficial de contingência.
-  static const String customApiUrl = "";
+  // URL HTTPS oficial do Web Service ativo no Render
+  static const String customApiUrl = "https://shero-app.onrender.com";
 
   // Suporte a injeção via parâmetro de build: flutter build apk --dart-define=API_URL=https://sua-api.onrender.com
   static const String _envUrl = String.fromEnvironment('API_URL');
