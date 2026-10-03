@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_repository_example/ui/page/movies_list_page.dart';
-
 import 'package:provider/provider.dart';
 
 import 'core/di/configure_providers.dart';
+import 'ui/page/home_page.dart';
 
-Future<void> main() async{
+// Ponto de entrada do aplicativo SHERO (Projeto de PDM - UFRN)
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Inicializa o grafo de dependências (SQLite, SharedPreferences, ApiClient, Repositories)
   final data = await ConfigureProviders.createDependencyTree();
 
   runApp(AppRoot(data: data));
@@ -24,12 +25,20 @@ class AppRoot extends StatelessWidget {
       providers: data.providers,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'The Movie Database',
+        title: 'SHERO • Agência Tática',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.deepPurple,
+            brightness: Brightness.light,
+          ),
+          appBarTheme: const AppBarTheme(
+            centerTitle: true,
+            elevation: 0,
+            scrolledUnderElevation: 2,
+          ),
         ),
-        home: const MoviesListPage(),
+        home: const HomePage(),
       ),
     );
   }
