@@ -82,11 +82,23 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Row(
+                    Row(
                       children: [
-                        Icon(Icons.military_tech, color: Colors.amber, size: 30),
-                        SizedBox(width: 8),
-                        Text(
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Container(
+                            color: Colors.black,
+                            padding: const EdgeInsets.all(4),
+                            child: Image.asset(
+                              'assets/images/logoshero.png',
+                              height: 36,
+                              width: 36,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        const Text(
                           "CENTRAL DE COMANDO",
                           style: TextStyle(
                             color: Colors.amber,
